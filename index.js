@@ -1,30 +1,37 @@
-// Write your solution in this file!
 const employee = {
     name: "John",
-    streetAdress: "123 Street"
+    streetAddress: "123 Street"
 }
-function updateEmployeeWithKeyAndValue(obj, key, value){
-    const newObj = {...obj};
+//first function
+function updateEmployeeWithKeyAndValue(obj, key, value) {
+    const newObj = { ...obj };
     newObj[key] = value;
     return newObj;
 }
 const updateEmployee = updateEmployeeWithKeyAndValue(
-    employee, "James", "456 New Street"
+    employee, "name2", "James"
 )
-function destructivelyUpdateEmployeeWithKeyAndValue(obj, key, value){
+updateEmployee["streetAddress2"] = "456 New Street";
+console.log(updateEmployee);
+//second function
+function destructivelyUpdateEmployeeWithKeyAndValue(obj, key, value) {
     obj[key] = value
     return obj;
 }
-const destructivelyUpdateEmployee = destructivelyUpdateEmployeeWithKeyAndValue(employee, "Kelly", "789 Main Ave.");
-function deleteFromEmployeeByKey(obj, key, value){
-    const newObj = {...obj};
-    newObj[key] = value;
+const destructivelyUpdateEmployee = destructivelyUpdateEmployeeWithKeyAndValue(employee, "streetAddress", "789 Street");
+console.log(destructivelyUpdateEmployee);
+//third function
+function deleteFromEmployeeByKey(obj, key) {
+    const newObj = { ...obj };
+    delete newObj[key];
     return newObj;
 }
-const deleteEmployeeKey = deleteFromEmployeeByKey(employee, key)
-delete destructivelyUpdateEmployee.name;
-function destructivelyDeleteFromEmployeeByKey(obj, key, value){
-    obj[key] = value;
+const deleteEmployeeKey = deleteFromEmployeeByKey(employee, "name");
+console.log(deleteEmployeeKey);
+//fourth function
+function destructivelyDeleteFromEmployeeByKey(obj, key) {
+    delete obj[key];
     return obj;
 }
-const destructivelyDeleteKey = destructivelyDeleteFromEmployeeByKey(employee, "Kate", "1011 New Main St.");
+const destructivelyDeleteKey = destructivelyDeleteFromEmployeeByKey(employee, "streetAddress");
+console.log(destructivelyDeleteKey);
